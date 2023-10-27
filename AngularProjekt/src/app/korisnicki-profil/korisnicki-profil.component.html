@@ -1,0 +1,43 @@
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+
+        <img *ngIf="korisnikPodatci.lokacijaSlike==null" class="rounded-circle mt-5" width="150px"  src="assets/img/Korisnici/unknown.jfif" >
+        <img *ngIf="korisnikPodatci.lokacijaSlike!=null"class="rounded-circle mt-5" width="150px"  src="{{korisnikPodatci.lokacijaSlike}}" >
+
+        <input style="display: none" type="file" (change)="onfileSelected($event)" #fileInput>
+        <button  type="button" class="btn btn-primary slika" (click)="fileInput.click()">Izaberi sliku</button>
+        <input style="display: none" type="text" [(ngModel)]="korisnikPodatci.lokacijaSlike" class="form-control" placeholder="prezime" value="{{lokacija}}" >
+        <span class="font-weight-bold">{{korisnikPodatci.korisnickoIme}}</span><span class="text-black-50">{{korisnikPodatci.email}}</span><span> </span></div>
+    </div>
+
+    <div class="col-md-5 border-right">
+      <div class="p-3 py-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h4 class="text-right">Postavke profila</h4>
+        </div>
+        <div class="row mt-2">
+          <div class="col-md-6"><label class="labels">Ime</label><input type="text" [(ngModel)]="korisnikPodatci.ime" class="form-control" placeholder="prezime" ></div>
+          <div class="col-md-6"><label class="labels">Prezime</label><input type="text" [(ngModel)]="korisnikPodatci.prezime" class="form-control" placeholder="prezime"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col-md-12"><label class="labels">Korisnicko ime</label><input type="text" [(ngModel)]="korisnikPodatci.korisnickoIme" class="form-control" placeholder="korisnicko ime" value=""></div>
+          <div class="col-md-12"><label class="labels">Adresa 1</label><input type="text" [(ngModel)]="korisnikPodatci.adresa1" class="form-control" placeholder="Adresa za dostavu" value=""></div>
+          <div class="col-md-12"><label class="labels">Adresa 2</label><input type="text"[(ngModel)]="korisnikPodatci.adresa2" class="form-control" placeholder="Pomoćna adresa za dostavu" value=""></div>
+          <div class="col-md-12"><label class="labels">Država</label>
+            <select class="form-control" [(ngModel)]="korisnikPodatci.drzavaID" >
+              <option *ngFor="let x of getDrzave()" value="{{x.id}}">{{x.opis}}</option>
+            </select>
+          </div>
+          <div class="col-md-12"><label class="labels">Email</label><input type="text" [(ngModel)]="korisnikPodatci.email" class="form-control" placeholder="example@gmail.com" value=""></div>
+          <div class="col-md-12"><label class="labels">Datum rođenja</label><input [(ngModel)]="korisnikPodatci.datumRodjenja" type="date" class="form-control" value=""></div>
+        </div>
+
+        <div class="mt-5 text-center"><button class="btn btn-primary" (click)="spasiPromjene()" type="button" >Spasi promjene</button></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

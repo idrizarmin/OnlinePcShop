@@ -1,0 +1,89 @@
+<div class="wrapper">
+<div class="dada">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="navbar" style="position:static" >
+  <div class="container px-4 px-lg-5">
+    <a class="navbar-brand"  routerLink="/pocetna"> <img id="logo" src="assets/img/Logo.png" ></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page"  routerLink="/pocetna" >Početna</a>
+        </li>
+        <li class="dropdown"><a class="nav-link">
+          <a class="nav-item">Proizvodi </a>
+          <div class="dropdown-content" id="tekst">
+            <a *ngFor="let k of getKategorijePodaci()"  (click)="Otvori(k)">{{k.nazivKategorije}}</a>
+
+
+          </div>
+        </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"  routerLink="/oglasi">Oglasi</a></li>
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/postovi">Postovi</a>
+        </li>
+
+      </ul>
+
+      <button *ngIf="loginInfo().isPermisijaKorisnik" id="btn-obavjesti" >
+        <img  *ngIf="loginInfo().isPermisijaKorisnik" (click)="prikaziObavjestiModal() "  id="obavjest" src="assets/img/Ikone/notification.png">
+        <span *ngIf="brojNovihObavjesti>0 && loginInfo().isLogiran"  class="badge badge-light">{{brojNovihObavjesti}}</span>
+      </button>
+      <button *ngIf="loginInfo().isPermisijaAdmin" id="btn-obavjestiAdmin" >
+        <img  *ngIf="loginInfo().isPermisijaAdmin" (click)="prikaziAdminObavjestiModal() "  id="obavjestAdmin" src="assets/img/Ikone/notification.png">
+        <span *ngIf="brojNovihObavjestiAdmin>0 && loginInfo().isLogiran"  class="badge badge-light">{{brojNovihObavjestiAdmin}}</span>
+      </button>
+
+
+      <!--<div style="margin-right: 110px; margin-left: 120px"> </div>-->
+      <button id="btn-korpa" *ngIf="loginInfo().isPermisijaKorisnik" ro routerLink="/korpa"  class="btn btn-outline-light" type="submit">
+        Korpa
+      </button>
+
+
+        <button *ngIf="loginInfo().isLogiran == false"  id="registracija" routerLink="/registracija" class="btn btn-success"  type="submit" >
+          Registracija
+        </button>
+        <button  *ngIf="loginInfo().isLogiran == false" class="btn btn-danger"  type="submit" routerLink="/login" >
+          Prijava
+        </button>
+
+        <li *ngIf="loginInfo().isLogiran" class="nav-item dropdown">
+          <a class="btn btn-outline-light" id="navbarDropdown" href="#"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             {{loginInfo().autentifikacijaToken.korisnickiNalog.korisnickoIme}}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" *ngIf="loginInfo().isPermisijaKorisnik"  routerLink="/korisnicki-profil">Postavke profila</a></li>
+            <li><a class="dropdown-item" *ngIf="loginInfo().isPermisijaKorisnik"  routerLink="/naruzdbe-korisnik">Moje narudzbe</a></li>
+            <li><a class="dropdown-item" (click)="logoutButton()">Odjava</a></li>
+          </ul>
+        </li>
+
+    </div>
+  </div>
+</nav>
+
+<div class="sidebar" *ngIf="loginInfo().isPermisijaAdmin">
+  <button  class="btn1 default" routerLink="/pocetna">Pocetna</button>
+  <button  class="btn1 default" routerLink="/proizvodi">Proizvod</button>
+  <button  class="btn1 default" (click)="btnDodajProizvodjaca()" >Proizvodjac</button>
+  <button  class="btn1 default" (click)="btnDodajKategoriju()" >Kategorija</button>
+  <button  class="btn1 default" routerLink="/oglasi-admin">Oglasi</button>
+  <button  class="btn1 default" routerLink="/postovi-admin">Postovi</button>
+  <button  class="btn1 default" routerLink="/narudzbe">Narudzbe</button>
+  <button  class="btn1 default" routerLink="/korisnik">Korisnicki racuni</button>
+</div>
+<app-administrator-proizvodjac [urediProizvodjaca] = "noviProizvodjac" ></app-administrator-proizvodjac>
+<app-administrator-kategorija  [urediKategoriju] ="novaKategorija" ></app-administrator-kategorija>
+<app-administrator-postovi [urediPost]="noviPost"></app-administrator-postovi>
+
+</div>
+  <app-obavjesti
+    [prikazObavjesti]="prikaziObavjest"
+  ></app-obavjesti>
+  <app-admin-obavjesti [prikazObavjesti]="prikaziObavjestAdmin"></app-admin-obavjesti>
+<router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

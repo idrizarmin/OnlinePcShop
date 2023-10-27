@@ -1,0 +1,43 @@
+<div class="poravnaj">
+
+  <p></p>
+
+  <table id="myTable" >
+    <tr class="header">
+      <th>Naziv oglasa</th>
+      <th>Sadrzaj</th>
+      <th>Broj pozicija</th>
+      <th>Lokacija</th>
+      <th>Datum objave
+      <th>Datum isteka</th>
+      <th>Aktivan</th>
+      <th>Akcija</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let p of getOglasiPodaci()">
+      <td>{{p.naslov}}</td>
+      <td>{{p.sadrzaj}}</td>
+      <td>{{p.brojPozicja}}</td>
+      <td>{{p.lokacija}}</td>
+      <td>{{p.datumObjave | date:'MM.dd.yyyy'}}</td>
+      <td>{{p.datumIsteka | date:'MM.dd.yyyy'}}</td>
+      <td *ngIf="p.aktivan">DA</td>
+      <td *ngIf="!p.aktivan">NE</td>
+      <td>
+        <img class="detalji"  src="assets/img/Ikone/trash.png" width="10%" (click)="obrisi(p)">
+        <img class="detalji" src="assets/img/Ikone/edit.png" width="10%" (click)="detalji(p)">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary" (click)="btnNovi()">Dodaj novi oglas</button>
+</div>
+<app-oglas-edit [urediOglas]="odabraniOglas"></app-oglas-edit>
+<app-pagination
+  (goPage)="goToPage($event)"
+  (goPrev)="goToPrevious()"
+  (goNext)="goToNext()"
+  [page]="page"
+  [perPage]="limit"
+  [count]="total">
+</app-pagination>

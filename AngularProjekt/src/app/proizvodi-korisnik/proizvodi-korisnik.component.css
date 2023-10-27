@@ -1,0 +1,22 @@
+.sadrzaj{
+  width: 80%;
+  margin-left: 10%;
+  text-align: center;
+}
+.card-img-top{
+  width: border-box;
+  height:border-box;
+}
+.card-img-top:hover{
+  cursor: pointer;
+}
+.card-img-top{
+  height: 62%;
+}
+.card-img,
+.card-img-bottom {
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+

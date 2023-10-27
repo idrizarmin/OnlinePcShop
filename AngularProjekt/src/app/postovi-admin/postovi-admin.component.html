@@ -1,0 +1,47 @@
+<h2 style="text-align:  center;padding-top: 2%"> Aktuelni postovi </h2>
+
+<div *ngFor=" let p of getPostoviPodaci()"  class="conteiner">
+
+
+  <div class="conteiner2" >
+    <div class="picture">
+      <div>
+        <figure class="">
+          <img class="card-image img-thumbnail"  src="{{p.lokacijaSlike}}" alt="Nije moguće učitati sliku" />
+        </figure>
+      </div>
+    </div>
+    <div class="table">
+
+      <table style="border: none;border-bottom-color: white">
+        <tr>
+          <td style="padding-bottom: 0%;padding-top: 2%"><b></b> <i> <b>{{p.naslov}}</b></i> </td>
+        </tr>
+        <tr>
+          <td style="padding-bottom: 0%;"><i><b>Autor:  </b></i> <i>  {{p.autorPosta.ime}} {{p.autorPosta.prezime}}</i>
+            <img src="assets/img/Ikone/edit.png"  (click)="detalji(p)">
+            <img class="detalji"  src="assets/img/Ikone/trash.png" width="10%" (click)="obrisi(p)">
+          </td>
+        </tr>
+        <tr>
+          <td> {{p.sadrzaj}} </td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary" style="margin-left: 80%;margin-top:2%" type="button" (click)="btnNovi()">Dodaj novi post</button>
+
+<app-post-edit [urediPost]="odabraniPost"></app-post-edit>
+<app-pagination
+  (goPage)="goToPage($event)"
+  (goPrev)="goToPrevious()"
+  (goNext)="goToNext()"
+  [page]="page"
+  [perPage]="limit"
+  [count]="total">
+</app-pagination>
+
+
+

@@ -1,0 +1,69 @@
+#exampleModalLive{
+  right: 0% !important;
+
+}
+#exampleModalLive{
+  position: absolute;
+  height: 350px;
+  width: 350px;
+  top: 2%;
+  left: 65%;
+}
+.poruka{
+  background-color: rgb(71, 177, 213);
+  border-radius: 20px;
+  margin-right: 4%;
+  margin-bottom: 4%;
+  display: flex;
+  flex: fit-content;
+  padding: 1%;
+}
+.modal-body{
+  height: 180px;
+  overflow:hidden;
+  overflow-y:scroll;
+  padding-right:0 !important;
+
+}
+::-webkit-scrollbar {
+  width: 1em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #324148;
+  outline: 1px solid slategrey;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #083270;
+}
+
+.sadrzaj{
+  width: 90%;
+  font-size: 15px;
+  margin-left: 4%;
+  margin-top: 4%;
+}
+.linija{
+  display:block;
+  height: 3px;
+  width: 85%;
+  background-color: #d0dde3;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  margin-left: 4%;
+  border-radius: 20px;
+  opacity: 80%;
+}
+.obrisi{
+  font-size: 12px;
+  width: 5%;
+  margin-top: 5%;
+  margin-right: 2%;
+}
+

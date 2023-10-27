@@ -1,0 +1,53 @@
+<div *ngIf="urediOglas!=null && urediOglas.prikazi" class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Uredite podatke za oglas </h5>
+        <button type="button" class="btn-close" (click)="urediOglas.prikazi = false" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Naslov</label>
+          <input type="text" class="form-control" [(ngModel)]="urediOglas.naslov"  placeholder="Naslov">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Sadrzaj</label>
+          <input type="text" class="form-control" [(ngModel)]="urediOglas.sadrzaj" placeholder="Sadrzaj">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Broj pozicija</label>
+          <input  type="number" class="form-control" [(ngModel)]="urediOglas.brojPozicja">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Lokacija</label>
+          <input type="text" class="form-control" [(ngModel)]="urediOglas.lokacija"  placeholder="Lokacija">
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">Datum objave</label>
+          <input  type="date" class="form-control" [(ngModel)]="urediOglas.datumObjave">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Datum isteka</label>
+          <input  type="date" class="form-control" [(ngModel)]="urediOglas.datumIsteka">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Autor oglasa</label>
+          <select class="form-control" [(ngModel)]="urediOglas.autorOglasaID" >
+            <option *ngFor="let x of admini" value="{{x.id}}">{{x.korisnickoIme}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Aktivan</label>
+          <input   [(ngModel)]="urediOglas.aktivan" type="checkbox" >
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="urediOglas.prikazi = false" >Close</button>
+        <button type="button" class="btn btn-primary" (click)="snimi()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

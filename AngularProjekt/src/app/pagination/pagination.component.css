@@ -1,0 +1,18 @@
+.pagination {
+  padding: 12px;
+}
+
+.pages {
+  padding: 14px;
+  display: block;
+  margin-left: 10%;
+}
+
+.btn-pageNumber {
+  min-width: 54px;
+  margin: 2px;
+}
+button{
+  background-color: #083270;
+  color: white;
+}

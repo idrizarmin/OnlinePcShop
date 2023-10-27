@@ -1,0 +1,42 @@
+<div *ngIf="urediAdmina!=null && urediAdmina.prikazi" class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Dodaj novog administratora </h5>
+        <button type="button" class="btn-close" (click)="urediAdmina.prikazi = false" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Korisnicko ime</label>
+          <input type="text" class="form-control" [(ngModel)]="urediAdmina.korisnickoIme">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Ime</label>
+          <input type="text" class="form-control" [(ngModel)]="urediAdmina.ime">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Prezime </label>
+          <input  type="text" class="form-control" [(ngModel)]="urediAdmina.prezime">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Datum rodjenja</label><br>
+          <input type="datetime-local"  class="form-control" [(ngModel)]="urediAdmina.datumRodjenja" >
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Trajanje ugovora do</label><br>
+          <input type="datetime-local"  class="form-control" [(ngModel)]="urediAdmina.trajanjeUgovora">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Lozinka</label>
+          <input type="password" class="form-control" [(ngModel)]="urediAdmina.lozinka">
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="urediAdmina.prikazi = false" >Close</button>
+        <button type="button" class="btn btn-primary" (click)="snimi()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,24 @@
+
+
+<div class="container login-container">
+
+    <div class="col-md-12 login-form-1">
+      <a   routerLink="/pocetna"> <img id="logo" src="assets/img/Logo.png" ></a>
+      <div class="form-group">
+        <input type="text"  id="txtKorisnickoIme" [(ngModel)]="txtKorisnickoIme" class="form-control" placeholder="Korisnicko ime " value="" />
+      </div>
+      <div class="form-group">
+        <input type="password" id="txtLozinka" [(ngModel)]="txtLozinka" class="form-control" placeholder="Lozinka" value="" />
+      </div>
+      <div class="form-group" id="loginbtn">
+        <input (click)="btnLogin()" type="submit" class="btnSubmit" value="Prijavi se " />
+
+
+      <div class="form-group">
+        <a  class="btnForgetPwd">Zaboravili ste lozinku?</a>
+      </div>
+      </div>
+    </div>
+
+</div>
+

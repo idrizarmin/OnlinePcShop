@@ -1,0 +1,30 @@
+<div *ngIf="urediPost!=null && urediPost.prikazi" class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLiveLabel">Uredite podatke za post </h5>
+        <button type="button" class="btn-close" (click)="urediPost.prikazi = false" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label">Naslov posta</label>
+          <input type="text" class="form-control" [(ngModel)]="urediPost.naslov"  placeholder="Naslov">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Sadrzaj posta</label>
+          <input type="text" class="form-control" [(ngModel)]="urediPost.sadrzaj" placeholder="Sadrzaj">
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Autor posta</label>
+          <select class="form-control" [(ngModel)]="urediPost.autorPostaID" >
+            <option *ngFor="let x of admini" value="{{x.id}}">{{x.korisnickoIme}}</option>
+          </select>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="urediPost.prikazi = false" >Close</button>
+        <button type="button" class="btn btn-primary" (click)="snimi()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

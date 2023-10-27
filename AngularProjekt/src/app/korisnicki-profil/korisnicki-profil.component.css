@@ -1,0 +1,47 @@
+body {
+  background: rgb(23, 87, 185)
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: #3974e0
+}
+
+.profile-button {
+  background: rgb(11, 38, 126);
+  box-shadow: none;
+  border: none
+}
+
+.profile-button:hover {
+  background: #1363c0
+}
+
+.profile-button:focus {
+  background: #1640c5;
+  box-shadow: none
+}
+
+.profile-button:active {
+  background: #0acce7;
+  box-shadow: none
+}
+
+.back:hover {
+  color: #0fe5de;
+  cursor: pointer
+}
+
+.labels {
+  font-size: 13px;
+  margin-top: 1%;
+}
+.slika{
+  font-size: small;
+  padding: 0%;
+  height: 20px;
+  width: 100px;
+  margin-top: 6%;
+}
+
+

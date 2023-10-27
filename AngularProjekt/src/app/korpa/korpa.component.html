@@ -1,0 +1,62 @@
+<ng-container *ngIf="products.length!=0">
+  <div class="container">
+  <div class="cart-table">
+    <div class="cart-product">
+      <table class="table table-responsive">
+        <thead>
+        <tr>
+          <th>Naziv proizvoda</th>
+          <th>Slika</th>
+          <th>Opis</th>
+          <th>Cijena</th>
+
+          <th>Proizvođač</th>
+          <th>Količina</th>
+          <th>Akcija</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of products">
+          <td>{{p.nazivProizvoda}}</td>
+          <td><img src="{{p.lokacijaSlike}}"></td>
+          <td>{{p.opis}}</td>
+          <td>{{p.cijena}}</td>
+          <td>{{p.proizvodjac.nazivProizvodjaca}}</td>
+          <td> <input type="number" placeholder="Kolicina" min="1" [(ngModel)]="p.kolicina"></td>
+          <td>
+
+            <br><br><br>
+            <button class="btn btn-danger ukloni" (click)="removeItem(p)">Ukloni</button>
+
+          </td>
+
+        </tr>
+        <tr>
+          <td colspan="3"></td>
+          <td><button (click)="emptycart()" class="btn btn-danger">Izprazni korpu</button></td>
+          <td><button routerLink="/pocetna" class="btn btn-primary">Nastavi sa kupovinom</button></td>
+          <td><button (click)="naruci()" class="btn btn-success">Naruči</button></td>
+          <td><strong>Ukupno: {{grandTotal}} KM</strong></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length==0">
+<div class="container">
+  <div style="text-align: center" class="cart">
+    <h5>Moje narudžbe</h5>
+  </div>
+  <div class="center">
+    <img src="/assets/img/cart_empty.png" alt="">
+    <h4>Vaša korpa je prazna</h4>
+    <h6>Krenite sa vašom kupovinom</h6>
+    <button class="btn btn-primary" routerLink="/pocetna">
+      Kupovina
+    </button>
+  </div>
+</div>
+</ng-container>

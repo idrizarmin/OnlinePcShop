@@ -1,0 +1,31 @@
+<div class="poravnaj">
+
+<p></p>
+  <input type="text" id="myInput" [(ngModel)]="ime" placeholder="Pretrazi korisnike...">
+
+
+  <table id="myTable" >
+    <tr class="header">
+      <th>Ime</th>
+      <th>Prezime</th>
+      <th>Korisnicko ime</th>
+      <th>Datum rodjenja
+      <th>Drzava</th>
+      <th>Akcija</th>
+    </tr>
+    <tbody>
+    <tr *ngFor="let p of getProizvodiPodaci()">
+      <td>{{p.ime}}</td>
+      <td>{{p.prezime}}</td>
+      <td>{{p.korisnickoIme}}</td>
+      <td>{{p.datumRodjenja | date:'MM.dd.yyyy'}}</td>
+      <td>{{p.drzava.naziv}}</td>
+      <td>
+        <img class="obrisi" src="assets/img/Ikone/trash.png" width="10%" (click)="obrisi(p)">
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<button (click)="btnNovi()" class="btn btn-primary">Dodaj novog administratora</button>
+<app-administrator-edit [urediAdmina]="noviAdmin"></app-administrator-edit>

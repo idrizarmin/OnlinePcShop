@@ -1,0 +1,46 @@
+<div class="poravnaj">
+
+  <p></p>
+
+
+<input type="text" id="myInput" [(ngModel)]="naziv" placeholder="Pretrazi proizvod...">
+
+
+<table id="myTable" >
+  <tr class="header">
+    <th>Naziv proizvoda</th>
+    <th>Cijena</th>
+    <th>Na stanju</th>
+    <th>Slika</th>
+    <th>Obrisi</th>
+    <th>Uredi</th>
+  </tr>
+  <tbody>
+  <tr *ngFor="let p of getProizvodiPodaci()">
+    <td>{{p.nazivProizvoda}}</td>
+    <td>{{p.cijena}}</td>
+    <td>{{p.naStanju}}</td>
+    <td>
+      <img class="profilna-slika" style="width: 40px" src="{{p.lokacijaSlike}}">
+    </td>
+    <td>
+      <img class="obrisi" src="assets/img/Ikone/trash.png" width="10%" (click)="obrisi(p)">
+    </td>
+    <td>
+      <img class="obrisi" src="assets/img/Ikone/edit.png" width="10%" (click)="detalji(p)">
+    </td>
+  </tr>
+  </tbody>
+</table>
+<button class="btn btn-primary" (click)="btnNovi()">Dodaj novi proizvod</button>
+</div>
+<app-pagination
+  (goPage)="goToPage($event)"
+  (goPrev)="goToPrevious()"
+  (goNext)="goToNext()"
+  [page]="page"
+  [perPage]="limit"
+  [count]="total">
+</app-pagination>
+<app-proizvod-edit [urediProizvod]="odabraniProizvod"></app-proizvod-edit>
+

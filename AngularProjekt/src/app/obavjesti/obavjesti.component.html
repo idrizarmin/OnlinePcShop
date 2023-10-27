@@ -1,0 +1,24 @@
+
+
+
+<div *ngIf="prikazObavjesti"  class="modal right fade show"  id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-hidden="true" role="dialog" data-mdb-backdrop="true" data-mdb-keyboard="true" style="display: inline-block">
+  <div class="modal-dialog modal-side modal-top-right ">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Obavjesti</h5>
+        <button (click)="dismissModal()" type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" *ngIf="loginInfo().isLogiran && loginInfo().autentifikacijaToken.korisnickiNalog!=null">
+        <div   *ngFor="let o of getObavjesti()">
+          <div class="poruka">
+            <p class="sadrzaj">{{o.content}}</p>
+            <button (click)="setDeleted(o)"   class="btn-close small obrisi"  aria-label="Close"></button>
+          </div>
+            <div class="linija"></div>
+        </div>
+        <div *ngIf="brojObavjesti==0" style="color: #1a1e21" >Nemate novih obavjesti</div>
+      </div>
+
+    </div>
+  </div>
+</div>

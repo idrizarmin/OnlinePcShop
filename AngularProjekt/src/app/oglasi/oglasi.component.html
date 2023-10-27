@@ -1,0 +1,43 @@
+
+<br><h3 align="center">Trenutno aktivni oglasi</h3><br>
+
+
+
+
+<table class="table "  style="padding-bottom: 2%">
+  <tr style="background: rgba(166,164,164,0.89)">
+    <th>Naslov</th>
+    <th>Sadrzaj</th>
+    <th>Broj pozicija</th>
+    <th>Lokacija</th>
+    <th>Datum objave</th>
+    <th>Datum isteka</th>
+    <th>Prijava na email</th>
+  </tr>
+  <tbody>
+
+
+ <tr *ngFor="let o of getOglasiPodaci()" >
+    <td>{{o.naslov}}</td>
+    <td>{{o.sadrzaj}}</td>
+    <td>{{o.brojPozicja}}</td>
+    <td>{{o.lokacija}}</td>
+    <td>{{o.datumObjave | date:'MM.dd.yyyy'}}</td>
+    <td>{{o.datumIsteka | date:'MM.dd.yyyy'}}</td>
+    <td>{{o.cvEmail}}</td>
+
+  </tr>
+  </tbody>
+</table>
+
+<app-pagination
+  (goPage)="goToPage($event)"
+  (goPrev)="goToPrevious()"
+  (goNext)="goToNext()"
+  [page]="page"
+  [perPage]="limit"
+  [count]="total">
+</app-pagination>
+
+
+

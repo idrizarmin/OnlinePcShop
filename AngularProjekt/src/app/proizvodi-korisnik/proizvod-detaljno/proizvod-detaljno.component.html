@@ -1,0 +1,51 @@
+
+
+
+
+<div  class="conteiner">
+
+
+  <div class="conteiner2">
+    <div class="picture">
+      <div>
+        <figure class="image is-3by2">
+          <img class="card-image" src="{{proizvodGet.lokacijaSlike}}" alt="Nije moguće učitati sliku" />
+        </figure>
+      </div>
+    </div>
+    <div class="table">
+
+      <table>
+        <tr>
+          <td><b>Naziv proizvoda: </b> <br/> {{proizvodGet.nazivProizvoda}} </td>
+        </tr>
+        <tr>
+          <td><b>Kategorija: </b> {{proizvodGet.kategorija.nazivKategorije}} </td>
+        </tr>
+        <tr>
+          <td><b>Proizvođač: </b>{{proizvodGet.proizvodjac.nazivProizvodjaca}} </td>
+        </tr>
+        <tr>
+          <td><b>Cijena: </b> {{proizvodGet.cijena}}KM</td>
+        </tr>
+
+
+      </table>
+    </div>
+
+  </div>
+
+  <div class="opis">
+    <tr>
+      <td><b>Opis proizvoda: </b> <br />{{proizvodGet.opis}}</td>
+    </tr>
+    <div style="text-align: right; width: 120%; margin-top: 1%;margin-bottom: 2%">
+    <button *ngIf="loginInfo().isPermisijaKorisnik" style="margin-right: 1%"   class="btn btn-primary" (click)="dodajUKorpu(proizvodGet)" > Naruči </button>
+    <a  title="Nazad" asp-area="" asp-controller="Home" asp-action="Index" ><img class="back" routerLink="/pocetna" style="margin-bottom: 1%;margin-right: 1%" src="../../../assets/img/back.png" /></a>
+    </div>
+  </div>
+</div>
+
+
+
+

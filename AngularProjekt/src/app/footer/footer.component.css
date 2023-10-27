@@ -1,0 +1,23 @@
+.column,
+.columns {
+
+  margin-left: 0;
+  width: 100%;
+  display: flex;
+  float: left;
+  color: white;
+  box-sizing: border-box;
+  padding-top: 0.5%;
+  background: #1a1e21;
+
+}
+.column{
+  margin-left: 3%;
+}
+.columns{
+  width: 100%;
+}
+footer {
+  padding-top: 2%;
+}
+

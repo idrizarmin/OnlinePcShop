@@ -1,0 +1,35 @@
+<div class="poravnaj">
+<p></p>
+
+<table class=" myTable" >
+  <tr class="header">
+    <th>Datum kreiranja</th>
+    <th>Narucioc</th>
+    <th>Naziv dostave</th>
+    <th>Aktivna</th>
+    <th>Potvrdjena</th>
+    <th>Akcija</th>
+  </tr>
+  <tbody>
+
+  <tr *ngFor="let n of getNarudzbaPodaci()">
+    <td>{{n.datumKreiranja | date:'MM.dd.yyyy'}}</td>
+    <td>{{n.narucioc.ime}}</td>
+    <td>{{n.dostavljac.nazivDostave}}</td>
+    <td *ngIf="n.aktivna">DA</td>
+    <td *ngIf="!n.aktivna">NE</td>
+    <td *ngIf="n.potvrdjena">DA</td>
+    <td *ngIf="!n.potvrdjena">NE</td>
+    <td>
+      <img class="uredi" src="assets/img/Ikone/trash.png" width="10%" (click)="obrisi(n)">
+      <img class="uredi" src="assets/img/Ikone/edit.png" width="10%" (click)="detalji(n)">
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+
+</div>
+<app-narudzba-edit  [urediNarudzbu]="odabranaNarudzba" ></app-narudzba-edit>
